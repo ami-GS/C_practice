@@ -3,20 +3,18 @@
 const char ZERO = '0';
 
 char* myAtoI(int num) {
-  int revAns[255];
+  int revAns[BUFSIZ];
   int i = 0;
   for (; num / 10 != 0; i++) {
     revAns[i] = num % 10 + ZERO;
     num /= 10;
   }
   revAns[i] = num + ZERO;
-  //i++;
 
-  static char ans[255];
+  static char ans[BUFSIZ];
   int j = 0;
-  for (; i != -1; i--) {
-    ans[j] = revAns[i];
-    j++;
+  for (; i >= 0; i--) {
+    ans[j++] = revAns[i];
   }
   ans[j] = 0;
 
