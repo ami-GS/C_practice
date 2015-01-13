@@ -2,7 +2,7 @@
 
 const char ZERO = '0';
 
-char* myAtoI(int num) {
+char* myItoA(int num) {
   int revAns[BUFSIZ];
   int i = 0;
   for (; num / 10 != 0; i++) {
