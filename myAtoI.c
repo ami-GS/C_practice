@@ -5,15 +5,14 @@ const char ZERO = '0';
 
 int myAtoI(char* s) {
   int i = 0;
-  int num[BUFSIZ];
-
-  for (; s[i] != '\0'; i++) {
-    num[i] = s[i] - ZERO;
-  }
-
+  int len = 0;
   int ans = 0;
-  for (int j = 0; j < i; j++) {
-    ans += num[j] * pow(10.0, (double)(i-j-1));
+
+  while (s[len++] != '\0') {}
+  len--;
+
+  for (; i < len; i++) {
+    ans += (s[i] - ZERO) * pow(10, len-1-i);
   }
   return ans;
 }
