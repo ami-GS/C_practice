@@ -10,19 +10,19 @@ void mergeSort(int *list, int left, int right){
     tmp[l] = 0;
   }
 
-  int mid = (left+right)/2+1;
-  mergeSort(list, left, mid-1);
-  mergeSort(list, mid, right);
+  int mid = (left+right)/2;
+  mergeSort(list, left, mid);
+  mergeSort(list, mid+1, right);
 
-  int i = left, j = mid, k = 0;
+  int i = left, j = mid+1, k = 0;
   while (1) {
-    if (i < mid && j <= right) {
+    if (i <= mid && j <= right) {
       if (list[i] >= list[j]) {
 	tmp[k++] = list[j++];
       } else {
 	tmp[k++] = list[i++];
 	}
-    } else if (i < mid) {
+    } else if (i <= mid) {
       tmp[k++] = list[i++];
     } else if (j <= right) {
       tmp[k++] = list[j++];
